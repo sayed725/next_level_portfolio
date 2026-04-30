@@ -1,96 +1,195 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Code2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projects";
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-featured online store built with Next.js, Stripe, and Tailwind CSS.",
-    tags: ["Next.js", "Stripe", "Tailwind"],
-    image: "/project1.jpg", // Placeholder
-    demo: "#",
-    github: "#"
-  },
-  {
-    title: "Task Management App",
-    description: "A collaborative task manager with real-time updates using Socket.io.",
-    tags: ["React", "Node.js", "Socket.io"],
-    image: "/project2.jpg", // Placeholder
-    demo: "#",
-    github: "#"
-  },
-  {
-    title: "AI Content Generator",
-    description: "Generate marketing copy using OpenAI GPT-3 API.",
-    tags: ["Next.js", "OpenAI", "Vercel"],
-    image: "/project3.jpg", // Placeholder
-    demo: "#",
-    github: "#"
-  }
+const tabs = [
+  { label: "All", value: "all" },
+  { label: "Full Stack", value: "fullstack" },
+  { label: "Frontend", value: "frontend" },
+  { label: "Backend", value: "backend" },
 ];
 
 export default function Projects() {
+  const [activeTab, setActiveTab] = useState("all");
+
+  const filtered =
+    activeTab === "all"
+      ? projects
+      : projects.filter((p) => p.category === activeTab);
+
   return (
-    <section id="projects" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-10 lg:py-20 relative px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Featured Projects</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A selection of my recent work.
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-violet-600 flex items-center justify-center">
+              <Code2 className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-primary font-label-sm tracking-widest text-[12px]">
+              MY WORK
+            </span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+            A selection of my recent work showcasing full-stack and frontend
+            expertise.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden hover:border-blue-500/50 transition-all h-full flex flex-col">
-                <div className="h-48 bg-gray-800 relative">
-                  {/* Placeholder for project image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                    Project Preview
+        {/* Tab System */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-10 sm:mb-12"
+        >
+          <div className="inline-flex items-center glass-card rounded-md p-1.5 gap-1">
+            {tabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => setActiveTab(tab.value)}
+                className={`relative px-5 sm:px-7 py-2.5 rounded-md text-sm font-medium transition-all duration-300 ${activeTab === tab.value
+                    ? "text-white"
+                    : "text-gray-400 hover:text-gray-200"
+                  }`}
+              >
+                {activeTab === tab.value && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-violet-600 rounded-md"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Project Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, index) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <div className="block group cursor-default h-full">
+                  <div className="glass-card rounded-2xl overflow-hidden border-white/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 h-full flex flex-col">
+                    {/* Image */}
+                    <div className="relative h-44 sm:h-52 overflow-hidden flex-shrink-0">
+                      <Image
+                        src={project.homeImage}
+                        alt={project.name}
+                        fill
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                      {/* Category Badge */}
+                      <div className="absolute top-3 left-3">
+                        <span className="text-[10px] sm:text-xs px-3 py-1 rounded-full bg-primary/20 text-primary backdrop-blur-md border border-primary/20 font-medium uppercase tracking-wider">
+                          {project.category === "fullstack"
+                            ? "Full Stack"
+                            : "Frontend"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 sm:p-5 flex flex-col flex-grow">
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                        {project.name}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                        {project.title}
+                      </p>
+
+                      {/* Tech Tags */}
+                      <div className="flex flex-wrap gap-1.5 mb-4 flex-grow">
+                        <div className="flex flex-wrap gap-1.5 h-fit">
+                          {project.techStack.slice(0, 4).map((tech) => (
+                            <span
+                              key={tech}
+                              className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/5"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {project.techStack.length > 4 && (
+                            <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-white/5 text-gray-500">
+                              +{project.techStack.length - 4}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="grid grid-cols-2 gap-3 mt-auto">
+                        <Link href={`/projects/${project.id}`} className="w-full">
+                          <Button
+                            className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all text-xs sm:text-sm h-9 sm:h-10"
+                          >
+                            Details
+                          </Button>
+                        </Link>
+
+                        {project.links?.livePreview ? (
+                          <a
+                            href={project.links.livePreview}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full"
+                          >
+                            <Button
+                              variant="outline"
+                              className="w-full rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-xs sm:text-sm h-9 sm:h-10"
+                            >
+                              Demo
+                            </Button>
+                          </a>
+                        ) : (
+                          <Button
+                            variant="outline"
+                            disabled
+                            className="w-full rounded-md border-white/10 glass-card text-gray-500 cursor-not-allowed text-xs sm:text-sm h-9 sm:h-10"
+                          >
+                            Demo
+                          </Button>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-white">{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-gray-400 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter className="gap-4">
-                  <Button size="sm" variant="outline" className="w-full border-white/20 hover:bg-white/10 text-white">
-                    <Github className="w-4 h-4 mr-2" /> Code
-                  </Button>
-                  <Button size="sm" className="w-full bg-blue-600 hover:bg-blue-700 text-white border-0">
-                    <ExternalLink className="w-4 h-4 mr-2" /> Demo
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

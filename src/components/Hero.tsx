@@ -184,7 +184,7 @@ export default function Hero() {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-4 right-1/4 glass-card  rounded-full shadow-2xl border-white/20"
             >
-              <Button size={"sm"} variant={"outline"} className="text-white font-label-sm text-blue-300 flex items-center gap-2">
+              <Button size={"sm"} className="rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all font-label-sm flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                 Full Stack
               </Button>

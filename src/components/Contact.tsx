@@ -85,7 +85,7 @@ export default function Contact() {
                   <label className="text-sm text-gray-400">Message</label>
                   <Textarea className="bg-black/20 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500/50 min-h-[150px]" placeholder="Tell me about your project..." />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0">
+                <Button className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all">
                   Send Message
                 </Button>
               </CardContent>

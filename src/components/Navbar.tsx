@@ -32,7 +32,7 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
             </Link>
           ))}
-          <Button className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all">
+          <Button className="rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all">
             Resume
           </Button>
         </div>
@@ -80,7 +80,7 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.05 }}
               >
                 <Button 
-                  className="w-full rounded-full bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all mt-2"
+                  className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all mt-2"
                   onClick={() => setIsOpen(false)}
                 >
                   Resume
