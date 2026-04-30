@@ -12,6 +12,7 @@ import {
   AlertTriangle,
   Lightbulb,
   Star,
+  Briefcase,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -50,7 +51,7 @@ export default function ProjectDetailPage({
 
   return (
     <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -92,7 +93,7 @@ export default function ProjectDetailPage({
           className="glass-card rounded-2xl p-3 sm:p-4 mb-8"
         >
           {/* Main Image */}
-          <div className="relative aspect-video rounded-xl overflow-hidden mb-3">
+          <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-xl overflow-hidden mb-3">
             <Image
               src={allImages[currentImage].src}
               alt={allImages[currentImage].alt}
@@ -157,6 +158,54 @@ export default function ProjectDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left: Description & Features */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Quick Links Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="flex flex-wrap gap-3"
+            >
+              {project.links?.livePreview && (
+                <a
+                  href={project.links.livePreview}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 min-w-[140px]"
+                >
+                  <Button className="w-full h-11 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all gap-2">
+                    <ExternalLink className="w-4 h-4" />
+                    Live Preview
+                  </Button>
+                </a>
+              )}
+              {project.links?.githubClient && (
+                <a
+                  href={project.links.githubClient}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 min-w-[140px]"
+                >
+                  <Button variant="outline" className="w-full h-11 rounded-xl glass-card border-white/10 text-white hover:bg-white/5 transition-all gap-2">
+                    <Github className="w-4 h-4" />
+                    GitHub Client
+                  </Button>
+                </a>
+              )}
+              {project.links?.githubServer && (
+                <a
+                  href={project.links.githubServer}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 min-w-[140px]"
+                >
+                  <Button variant="outline" className="w-full h-11 rounded-xl glass-card border-white/10 text-white hover:bg-white/5 transition-all gap-2">
+                    <Github className="w-4 h-4" />
+                    GitHub Server
+                  </Button>
+                </a>
+              )}
+            </motion.div>
+
             {/* Description */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -172,6 +221,32 @@ export default function ProjectDetailPage({
                 {project.description}
               </p>
             </motion.div>
+
+            {/* My Contributions */}
+            {project.myContributions && project.myContributions.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                className="glass-card rounded-2xl p-5 sm:p-7"
+              >
+                <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                  <Briefcase className="w-5 h-5 text-blue-400" />
+                  My Contributions
+                </h2>
+                <ul className="space-y-3">
+                  {project.myContributions.map((contribution, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-gray-400 text-sm sm:text-base leading-relaxed"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                      {contribution}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
 
             {/* Key Features */}
             {project.keyFeatures && project.keyFeatures.length > 0 && (
@@ -251,6 +326,28 @@ export default function ProjectDetailPage({
                   </ul>
                 </motion.div>
               )}
+
+            {/* Want to know more? */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="glass-card rounded-2xl p-5 sm:p-7 border-primary/20 bg-primary/5"
+            >
+              <h2 className="text-xl font-bold text-white mb-3">Want to know more?</h2>
+              <p className="text-gray-400 mb-4 text-sm sm:text-base">
+                Dive into the full project overview with detailed features, pages overview, json data structure and installation steps here:
+              </p>
+              <a
+                href={project.links?.readme || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group"
+              >
+                View Project Readme.md
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
+            </motion.div>
           </div>
 
           {/* Right Sidebar */}

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = ["About", "Skills", "Projects", "Contact"];
+const navLinks = ["Home", "About", "Skills", "Projects", "Education", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,16 +25,22 @@ export default function Navbar() {
           {navLinks.map((item) => (
             <Link 
               key={item}
-              href={`#${item.toLowerCase()}`} 
+              href={item === "Home" ? "/" : `/#${item.toLowerCase()}`} 
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
             >
               {item}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
             </Link>
           ))}
-          <Button className="rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all">
-            Resume
-          </Button>
+          <a 
+            href="https://drive.google.com/file/d/1PmvV2Qvc91vln-PNYMysX0BeczAh4Hlo/view?usp=sharing" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button className="rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all">
+              Resume
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Hamburger */}
@@ -66,7 +72,7 @@ export default function Navbar() {
                   transition={{ delay: index * 0.05 }}
                 >
                   <Link
-                    href={`#${item.toLowerCase()}`}
+                    href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
                     onClick={() => setIsOpen(false)}
                     className="block text-sm font-medium text-gray-300 hover:text-white transition-colors py-2 px-3 rounded-lg hover:bg-white/5"
                   >
@@ -79,12 +85,19 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
               >
-                <Button 
-                  className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all mt-2"
+                <a 
+                  href="https://drive.google.com/file/d/1PmvV2Qvc91vln-PNYMysX0BeczAh4Hlo/view?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  Resume
-                </Button>
+                  <Button 
+                    className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all mt-2"
+                  >
+                    Resume
+                  </Button>
+                </a>
               </motion.div>
             </div>
           </motion.div>
