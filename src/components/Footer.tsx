@@ -29,7 +29,7 @@ export default function Footer() {
               <a href="https://github.com/sayed725" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 transition-all hover:-translate-y-1">
                 <Github size={18} />
               </a>
-              <a href="https://www.linkedin.com/in/abu-sayed-khan-/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 transition-all hover:-translate-y-1">
+              <a href="https://www.linkedin.com/in/abu-sayed-khan-922801317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 transition-all hover:-translate-y-1">
                 <Linkedin size={18} />
               </a>
               <a href="mailto:abusayedkhan.pro@gmail.com" className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 transition-all hover:-translate-y-1">

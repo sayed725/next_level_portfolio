@@ -90,8 +90,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-10 lg:py-20 relative px-4 sm:px-6">
-      <div className="mx-auto max-w-7xl">
+    <section id="contact" className="py-10 lg:py-20 relative mx-auto w-11/12 container max-w-7xl">
+      <div className="">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -151,11 +151,11 @@ export default function Contact() {
                     >
                       {item.icon}
                     </div>
-                    <div>
-                      <p className="text-white font-semibold text-sm sm:text-base">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-white font-semibold text-sm sm:text-base break-all sm:break-normal">
                         {item.title}
                       </p>
-                      <p className="text-gray-500 text-xs sm:text-sm">
+                      <p className="text-gray-500 text-xs sm:text-sm truncate sm:whitespace-normal">
                         {item.subtitle}
                       </p>
                     </div>
@@ -190,7 +190,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Abu Sayed Khan"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all appearance-none"
                   />
                 </div>
                 <div className="space-y-2">
@@ -204,7 +204,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="you@example.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all appearance-none"
                   />
                 </div>
               </div>
@@ -221,7 +221,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Project Inquiry"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all appearance-none"
                 />
               </div>
 

@@ -23,18 +23,18 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((item) => (
-            <Link 
+            <Link
               key={item}
-              href={item === "Home" ? "/" : `/#${item.toLowerCase()}`} 
+              href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
             >
               {item}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
             </Link>
           ))}
-          <a 
-            href="https://drive.google.com/file/d/1PmvV2Qvc91vln-PNYMysX0BeczAh4Hlo/view?usp=sharing" 
-            target="_blank" 
+          <a
+            href="https://drive.google.com/file/d/1PmvV2Qvc91vln-PNYMysX0BeczAh4Hlo/view?usp=sharing"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all">
@@ -61,7 +61,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-white/10 bg-black/80 backdrop-blur-xl overflow-hidden"
+            className="md:hidden border-t border-white/10 bg-black/80 backdrop-blur-xl overflow-hidden md:hidden border-t border-white/5 glass-card backdrop-blur-3xl overflow-hidden shadow-2xl"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
               {navLinks.map((item, index) => (
@@ -85,14 +85,14 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
               >
-                <a 
-                  href="https://drive.google.com/file/d/1PmvV2Qvc91vln-PNYMysX0BeczAh4Hlo/view?usp=sharing" 
-                  target="_blank" 
+                <a
+                  href="https://drive.google.com/file/d/1PmvV2Qvc91vln-PNYMysX0BeczAh4Hlo/view?usp=sharing"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Button 
+                  <Button
                     className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all mt-2"
                   >
                     Resume

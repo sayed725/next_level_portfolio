@@ -30,7 +30,7 @@ export default function RootLayout({
           <div className="bg-grid fixed inset-0"></div>
         </div>
         <Navbar />
-        <main className="relative z-10">{children}</main>
+        <main className="">{children}</main>
         <Footer />
         <Toaster richColors position="top-right" theme="dark" />
       </body>

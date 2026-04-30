@@ -50,8 +50,8 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-10 lg:py-20 relative px-4 sm:px-6">
-      <div className="mx-auto max-w-7xl">
+    <section id="projects" className="py-10 lg:py-20 relative mx-auto w-11/12 container max-w-7xl">
+      <div className="">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,7 +85,8 @@ export default function Projects() {
           viewport={{ once: true }}
           className="flex justify-center mb-10 sm:mb-12"
         >
-          <div className="inline-flex items-center glass-card rounded-md p-1.5 gap-1">
+          <div className="w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 no-scrollbar flex justify-start sm:justify-center">
+            <div className="inline-flex items-center glass-card rounded-xl p-1 gap-1 min-w-max mx-auto">
             {tabs.map((tab) => (
               <button
                 key={tab.value}
@@ -105,6 +106,7 @@ export default function Projects() {
                 <span className="relative z-10">{tab.label}</span>
               </button>
             ))}
+            </div>
           </div>
         </motion.div>
 
@@ -243,27 +245,29 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="flex justify-center items-center gap-4 mt-12"
+            className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12"
           >
-            <Button
-              variant="outline"
-              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-              disabled={currentPage === 1}
-              className="rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-sm h-10 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Previous
-            </Button>
-            <div className="glass-card px-4 py-2 rounded-md text-gray-300 text-sm font-medium border-white/10 flex items-center justify-center min-w-[100px]">
-              {currentPage} / {totalPages}
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-xs sm:text-sm h-9 sm:h-10 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </Button>
+              <div className="glass-card px-4 py-2 rounded-md text-gray-300 text-xs sm:text-sm font-medium border-white/10 flex items-center justify-center min-w-[80px] sm:min-w-[100px]">
+                {currentPage} / {totalPages}
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className="rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-xs sm:text-sm h-9 sm:h-10 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </Button>
             </div>
-            <Button
-              variant="outline"
-              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-              disabled={currentPage === totalPages}
-              className="rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-sm h-10 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Next
-            </Button>
           </motion.div>
         )}
       </div>
