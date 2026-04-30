@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Code2, Folder } from "lucide-react";
+import { ArrowRight, Code2, Folder, Eye, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 
@@ -148,6 +148,7 @@ export default function Projects() {
                           fill
                           className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={index < 2}
                         />
                         {/* Overlay on hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
@@ -193,8 +194,9 @@ export default function Projects() {
                         <div className="grid grid-cols-2 gap-3 mt-auto">
                           <Link href={`/projects/${project.id}`} className="w-full">
                             <Button
-                              className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all text-xs sm:text-sm h-9 sm:h-10"
+                              className="w-full rounded-md bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all text-xs sm:text-sm h-9 sm:h-10 gap-2"
                             >
+                              <Eye className="w-4 h-4" />
                               Details
                             </Button>
                           </Link>
@@ -208,17 +210,19 @@ export default function Projects() {
                             >
                               <Button
                                 variant="outline"
-                                className="w-full rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-xs sm:text-sm h-9 sm:h-10"
+                                className="w-full rounded-md border-white/10 glass-card text-white hover:bg-white/5 transition-all text-xs sm:text-sm h-9 sm:h-10 gap-2"
                               >
-                                Demo
+                                <ExternalLink className="w-4 h-4" />
+                                Live Preview
                               </Button>
                             </a>
                           ) : (
                             <Button
                               variant="outline"
                               disabled
-                              className="w-full rounded-md border-white/10 glass-card text-gray-500 cursor-not-allowed text-xs sm:text-sm h-9 sm:h-10"
+                              className="w-full rounded-md border-white/10 glass-card text-gray-500 cursor-not-allowed text-xs sm:text-sm h-9 sm:h-10 gap-2"
                             >
+                              <ExternalLink className="w-4 h-4" />
                               Demo
                             </Button>
                           )}

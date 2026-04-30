@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Facebook, ArrowRight, FileText, CodeXml } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 
 const socialLinks = [
@@ -164,10 +165,13 @@ export default function Hero() {
           {/* Glowing Ring Container */}
           <div className="relative w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] rounded-full p-1.5 bg-gradient-to-tr from-primary via-secondary to-primary shadow-2xl">
             <div className="w-full h-full rounded-full bg-background overflow-hidden relative border-4 border-background">
-              <img
+              <Image
                 alt="Abu Sayed Khan"
                 className="w-full h-full object-cover"
                 src="/sayed_hero.jpg"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 

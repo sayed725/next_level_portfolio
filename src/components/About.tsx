@@ -59,6 +59,7 @@ export default function About() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 320px"
+                  priority
                 />
                 {/* Online indicator */}
                 <div className="absolute top-4 left-4 w-4 h-4 rounded-full bg-yellow-400 border-2 border-background shadow-lg shadow-yellow-400/40"></div>
