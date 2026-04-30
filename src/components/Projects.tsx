@@ -141,7 +141,7 @@ export default function Projects() {
                   <div className="block group cursor-default h-full">
                     <div className="glass-card rounded-2xl overflow-hidden border-white/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 h-full flex flex-col">
                       {/* Image */}
-                      <div className="relative h-44 sm:h-52 overflow-hidden flex-shrink-0">
+                      <div className="relative h-44 sm:h-60 overflow-hidden flex-shrink-0">
                         <Image
                           src={project.homeImage}
                           alt={project.name}
@@ -152,8 +152,8 @@ export default function Projects() {
                         {/* Overlay on hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
                         {/* Category Badge */}
-                        <div className="absolute top-3 left-3">
-                          <span className="text-[10px] sm:text-xs px-3 py-1 rounded-full bg-primary/20 text-primary backdrop-blur-md border border-primary/20 font-medium uppercase tracking-wider">
+                        <div className="absolute top-3 right-3">
+                          <span className="text-[10px] sm:text-xs px-3 py-1 rounded-full bg-primary/20 text-white backdrop-blur-md border border-primary/20 font-medium uppercase tracking-wider">
                             {project.category === "fullstack"
                               ? "Full Stack"
                               : "Frontend"}

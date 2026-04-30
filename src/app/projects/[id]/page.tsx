@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ProjectDetailPage({
   params,
@@ -28,6 +28,21 @@ export default function ProjectDetailPage({
   const { id } = use(params);
   const project = projects.find((p) => p.id === Number(id));
   const [currentImage, setCurrentImage] = useState(0);
+
+  const allImages = project ? [
+    { src: project.homeImage, alt: project.name },
+    ...project.images,
+  ] : [];
+
+  useEffect(() => {
+    if (allImages.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+    }, 4000); 
+
+    return () => clearInterval(interval);
+  }, [allImages.length]);
 
   if (!project) {
     return (
@@ -44,10 +59,7 @@ export default function ProjectDetailPage({
     );
   }
 
-  const allImages = [
-    { src: project.homeImage, alt: project.name },
-    ...project.images,
-  ];
+
 
   return (
     <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6">
@@ -111,7 +123,7 @@ export default function ProjectDetailPage({
                       prev === 0 ? allImages.length - 1 : prev - 1
                     )
                   }
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md hidden items-center justify-center text-white hover:bg-black/70 transition-colors"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -121,7 +133,7 @@ export default function ProjectDetailPage({
                       prev === allImages.length - 1 ? 0 : prev + 1
                     )
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md hidden  items-center justify-center text-white hover:bg-black/70 transition-colors"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>

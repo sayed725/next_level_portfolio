@@ -29,19 +29,27 @@ export const projects: Project[] = [
   {
     id: 1,
     name: "Urban Snacks",
-    homeImage: "/urban-snacks-1.png",
+    homeImage: "/urban_snacks/urban_snacks_home.jpg",
     category: "fullstack",
     title: "A modern, premium platform for authentic Bangladeshi snacks featuring a full-featured admin dashboard and dual payment gateways.",
     description: "Urban Snacks is a modern, premium platform for authentic Bangladeshi snacks. Built for visual excellence, buttery-smooth interactions, and a complete shopping experience — from discovery to doorstep delivery. It features a full-featured admin dashboard with real-time analytics, inventory management, and order processing.",
     techStack: [
-      "Next.js 16", "Tailwind CSS 4", "Shadcn/UI", "TypeScript 5", "Better Auth", 
-      "Zustand", "TanStack Query", "Framer Motion", "React Hook Form", "Zod", 
+      "Next.js 16", "Tailwind CSS 4", "Shadcn/UI", "TypeScript 5", "Better Auth",
+      "Zustand", "TanStack Query", "Framer Motion", "React Hook Form", "Zod",
       "Recharts", "Stripe", "SSLCommerz"
     ],
     images: [
-      { src: "/urban-snacks-1.png", alt: "Home Page" },
-      { src: "/urban-snacks-2.png", alt: "Admin Dashboard" },
-      { src: "/urban-snacks-3.png", alt: "Shopping Cart" },
+      { src: "/urban_snacks/urban_snacks_home.jpg", alt: "Home Page" },
+      { src: "/urban_snacks/urban_snacks_home_dark.jpg", alt: "Dark Mode Home" },
+      { src: "/urban_snacks/urban_snacks_products_page.jpg", alt: "Products Page" },
+      { src: "/urban_snacks/urban_snacks_admin_dahbaord.jpg", alt: "Admin Dashboard" },
+      { src: "/urban_snacks/urban_snacks_order_management.jpg", alt: "Order Management" },
+      { src: "/urban_snacks/urban_snacks_manage_items.jpg", alt: "Manage Items" },
+      { src: "/urban_snacks/urban_snacks_checkout_page.jpg", alt: "Checkout Page" },
+      { src: "/urban_snacks/urban_snacks_my_orders.jpg", alt: "My Orders" },
+      { src: "/urban_snacks/urban_snacks_reviews.jpg", alt: "Reviews" },
+      { src: "/urban_snacks/urban_snacks_how_order.jpg", alt: "How to Order" },
+      { src: "/urban_snacks/urban_sancks_trending_snacks.jpg", alt: "Trending Snacks" },
     ],
     keyFeatures: [
       "Dynamic Hero Slider: Admin-managed banners with category-linked CTAs, auto-play, and smooth crossfade transitions using Embla Carousel.",
@@ -63,27 +71,35 @@ export const projects: Project[] = [
       "Integrate an AI-powered snack recommendation engine based on user taste profiles."
     ],
     links: {
-      livePreview: "https://www.facebook.com/Urbansnacks.store",
+      livePreview: "https://urban-snacks-client.vercel.app",
       githubClient: "https://github.com/sayed725/urban_snacks_client",
       githubServer: "https://github.com/sayed725/urban_snacks_server",
-      readme: "#"
+      readme: "https://github.com/sayed725/urban_snacks_client/blob/main/README.md"
     }
   },
   {
     id: 2,
     name: "Brainy",
-    homeImage: "/brainy-1.png",
+    homeImage: "/brainy/brainy_home.jpg",
     category: "fullstack",
     title: "A modern, full-featured online tutoring marketplace and skill sharing platform built for visual excellence and role-based security.",
     description: "Brainy is a comprehensive online tutoring marketplace designed to connect students with expert tutors. It features a robust role-based architecture with dedicated dashboards for Students, Tutors, and Administrators. The platform emphasizes visual excellence, snappy interactions, and secure data handling using modern web technologies.",
     techStack: [
-      "Next.js 16", "Tailwind CSS 4", "Shadcn/UI", "TypeScript 5", "Better Auth", 
+      "Next.js 16", "Tailwind CSS 4", "Shadcn/UI", "TypeScript 5", "Better Auth",
       "Framer Motion", "TanStack Table", "Recharts", "Zod", "React Hook Form", "Lottie"
     ],
     images: [
-      { src: "/brainy-1.png", alt: "Home Page" },
-      { src: "/brainy-2.png", alt: "Tutor Marketplace" },
-      { src: "/brainy-3.png", alt: "Admin Dashboard" },
+      { src: "/brainy/brainy_home.jpg", alt: "Home Page" },
+      { src: "/brainy/brainy_home_dark.jpg", alt: "Dark Mode Home" },
+      { src: "/brainy/brainy_all_tutor.jpg", alt: "Tutor Marketplace" },
+      { src: "/brainy/brainy_tutor_card.jpg", alt: "Tutor Card" },
+      { src: "/brainy/brainy_edit_tutor_profile.jpg", alt: "Edit Tutor Profile" },
+      { src: "/brainy/brainy_home_become_A_tutor.jpg", alt: "Become a Tutor" },
+      { src: "/brainy/brainy_admin_dashbaord.jpg", alt: "Admin Dashboard" },
+      { src: "/brainy/brainy_manage_users.jpg", alt: "Manage Users" },
+      { src: "/brainy/brainy_manage_booking.jpg", alt: "Manage Bookings" },
+      { src: "/brainy/brainy_user_bookings.jpg", alt: "User Bookings" },
+      { src: "/brainy/brainy_add_bookings.jpg", alt: "Add Bookings" },
     ],
     keyFeatures: [
       "Modular Component Design: Leveraging Next.js 16 App Router with Parallel Routes for sophisticated role-based dashboard rendering.",
@@ -105,33 +121,35 @@ export const projects: Project[] = [
       "Add support for group sessions and interactive whiteboard integration."
     ],
     links: {
+      livePreview: "https://brainy-opal.vercel.app",
       githubClient: "https://github.com/sayed725/brainy_client",
       githubServer: "https://github.com/sayed725/brainy_server",
-      readme: "#"
+      readme: "https://github.com/sayed725/brainy_client/blob/main/README.md"
     }
   },
   {
     id: 3,
     name: "Care Matrix (Team Project)",
-    homeImage: "/CareMatrix Home.png",
+    homeImage: "/care_matrix/CareMatrix Home.jpg",
     category: "fullstack",
     title: "A multi-role complete hospital management system for doctors, pharmacists, receptionist, administrators and patients.",
     description: "Care Matrix Backend powers the Care Matrix hospital management system, a robust platform designed to digitize and streamline hospital operations, enhance patient care, and improve operational efficiency. This backend provides secure APIs for managing medical records, real-time communication, billing, inventory, and more, ensuring seamless coordination among medical professionals, administrators, receptionists, pharmacists, and patients.",
     techStack: [
-      "React", "Redux Toolkit", "React Router", "Tailwind CSS", "ShadCN Ui", 
-      "Stripe", "Axios", "Tanstack Query", "Toastify", "Sooner", "JWT", 
+      "React", "Redux Toolkit", "React Router", "Tailwind CSS", "ShadCN Ui",
+      "Stripe", "Axios", "Tanstack Query", "Toastify", "Sooner", "JWT",
       "FireBase", "Node.Js", "Express.Js", "MongoDB"
     ],
     images: [
-      { src: "/careMatrix available bed.png", alt: "Available Beds" },
-      { src: "/careMtrix About us.png", alt: "About Us" },
-      { src: "/careMtrix appointment bokking.png", alt: "Appointment Booking" },
-      { src: "/careMtrix doctor overview.png", alt: "Doctor Overview" },
-      { src: "/careMatrix  revenue.png", alt: "Revenue Dashboard" },
-      { src: "/CareMatrix add bed.png", alt: "Add Bed" },
-      { src: "/careMatrix buy medicine.png", alt: "Buy Medicine" },
-      { src: "/carematrix recept Overview.png", alt: "Receptionist Overview" },
-      { src: "/careMtrix payment record.png", alt: "Payment Record" },
+      { src: "/care_matrix/CareMatrix Home.jpg", alt: "Home Page" },
+      { src: "/care_matrix/careMtrix About us.jpg", alt: "About Us" },
+      { src: "/care_matrix/careMatrix available bed.jpg", alt: "Available Beds" },
+      { src: "/care_matrix/CareMatrix add bed.jpg", alt: "Add Bed" },
+      { src: "/care_matrix/careMtrix appointment bokking.jpg", alt: "Appointment Booking" },
+      { src: "/care_matrix/carematrix recept Overview.jpg", alt: "Receptionist Overview" },
+      { src: "/care_matrix/careMtrix doctor overview.jpg", alt: "Doctor Overview" },
+      { src: "/care_matrix/careMatrix buy medicine.jpg", alt: "Buy Medicine" },
+      { src: "/care_matrix/careMtrix payment record.jpg", alt: "Payment Record" },
+      { src: "/care_matrix/careMatrix  revenue.jpg", alt: "Revenue Dashboard" },
     ],
     keyFeatures: [
       "Medical Records Management: Securely stores and retrieves patient data, prescriptions, and medical history.",
@@ -175,40 +193,30 @@ export const projects: Project[] = [
       "Patient Health Gamification & Rewards System: Expand rewards with personalized challenges and wearable device integration."
     ],
     links: {
-      livePreview: "#",
-      githubClient: "#",
-      githubServer: "#",
-      readme: "#"
+      livePreview: "https://care-matrix.vercel.app",
+      githubClient: "https://github.com/ssmahim01/Care-Matrix-With-Dev-Sync",
+      githubServer: "https://github.com/ssmahim01/Care-Matrix-With-Dev-Sync",
+      readme: "https://github.com/ssmahim01/Care-Matrix-With-Dev-Sync/blob/main/README.md"
     },
   },
   {
     id: 4,
     name: "PostPad",
-    homeImage: "/Post-pad Home-Dark.png",
+    homeImage: "/post_pad/post_pad_home.jpg",
     category: "fullstack",
-    title:
-      "A forum-building website enabling users to post, comment, vote, and share content in real-time.",
-    description:
-      "This project is a fully responsive and interactive forum built using the MERN Stack (MongoDB, Express.js, React.js, Node.js). The platform allows users to post, comment, vote, and share content in real-time. Admins can manage users, announcements, and reported activities. The purpose is to create a scalable web application focusing on user experience, performance, and security.",
+    title: "A forum-building website enabling users to post, comment, vote, and share content in real-time.",
+    description: "This project is a fully responsive and interactive forum built using the MERN Stack (MongoDB, Express.js, React.js, Node.js). The platform allows users to post, comment, vote, and share content in real-time. Admins can manage users, announcements, and reported activities. The purpose is to create a scalable web application focusing on user experience, performance, and security.",
     techStack: [
-      "React",
-      "Tailwind CSS",
-      "Daisy Ui",
-      "React Hook Form",
-      "Stripe",
-      "Tanstack Query",
-      "FireBase",
-      "SweetAlert",
-      "Toastify",
-      "JWT",
-      "Node.Js",
-      "Express.Js",
-      "MongoDB",
+      "React", "Tailwind CSS", "Daisy Ui", "React Hook Form", "Stripe", "Tanstack Query",
+      "FireBase", "SweetAlert", "Toastify", "JWT", "Node.Js", "Express.Js", "MongoDB"
     ],
     images: [
-      { src: "/Postpad-Home.png", alt: "Home Page" },
-      { src: "/postPad-post-details.png", alt: "Post Details" },
-      { src: "/PostPad-admin-home.png", alt: "Admin Dashboard" },
+      { src: "/post_pad/post_pad_home.jpg", alt: "Home Page" },
+      { src: "/post_pad/post_pad_dark_home.jpg", alt: "Dark Mode Home" },
+      { src: "/post_pad/post_pad_user_profile.jpg", alt: "User Profile" },
+      { src: "/post_pad/post_pad_admin_home.jpg", alt: "Admin Dashboard" },
+      { src: "/post_pad/post_pad_manage_posts.jpg", alt: "Manage Posts" },
+      { src: "/post_pad/post_pad_manage_users.jpg", alt: "Manage Users" },
     ],
     keyFeatures: [
       "Homepage: Displays posts from newest to oldest with search functionality based on post tags.",
@@ -236,38 +244,28 @@ export const projects: Project[] = [
     ],
     links: {
       livePreview: "https://post-pad.web.app/",
-      github: "https://github.com/sayed725/PostPad-Client",
-      readme: "#"
+      githubClient: "https://github.com/sayed725/PostPad-Client",
+      githubServer: "https://github.com/sayed725/PostPad-Server",
+      readme: "https://github.com/sayed725/PostPad-Client/blob/main/README.md"
     },
   },
   {
     id: 5,
     name: "BiteBank",
-    homeImage: "/bitebank-1.jpeg",
+    homeImage: "/bite_bank/Bite-Bnak-Home.jpg",
     category: "fullstack",
-    title:
-      "A Food Sharing Website that allows users to add, get, update and delete food operation on several places.",
-    description:
-      "BiteBank is a user-friendly food sharing platform built with the MERN Stack (MongoDB, Express.js, React.js, Node.js). It supports CRUD operations (add, get, update, delete) for food items, allowing users to manage and request available foods. Features include a banner with top food slides, detailed food pages with request functionality, search by food title, sort and layout toggle options, and user dashboards for managing added and requested foods.",
+    title: "A Food Sharing Website that allows users to add, get, update and delete food operation on several places.",
+    description: "BiteBank is a user-friendly food sharing platform built with the MERN Stack (MongoDB, Express.js, React.js, Node.js). It supports CRUD operations (add, get, update, delete) for food items, allowing users to manage and request available foods. Features include a banner with top food slides, detailed food pages with request functionality, search by food title, sort and layout toggle options, and user dashboards for managing added and requested foods.",
     techStack: [
-      "React",
-      "Tailwind CSS",
-      "Daisy Ui",
-      "React Silk",
-      "Tanstack Query",
-      "FireBase",
-      "SweetAlert",
-      "Toastify",
-      "JWT",
-      "Node.Js",
-      "Express.Js",
-      "MongoDB",
+      "React", "Tailwind CSS", "Daisy Ui", "React Silk", "Tanstack Query",
+      "FireBase", "SweetAlert", "Toastify", "JWT", "Node.Js", "Express.Js", "MongoDB"
     ],
     images: [
-      { src: "/Bite-Bank-availablefood.png", alt: "Available Food" },
-      { src: "/Bite-bank-managefood.png", alt: "Manage Food" },
-      { src: "/Bite-Bnak-fooddetails.png", alt: "Food Details" },
-      { src: "/Bite-bank-addfood.png", alt: "Add Food" },
+      { src: "/bite_bank/Bite-Bnak-Home.jpg", alt: "Home Page" },
+      { src: "/bite_bank/Bite-Bank-availablefood.jpg", alt: "Available Food" },
+      { src: "/bite_bank/Bite-Bnak-fooddetails.jpg", alt: "Food Details" },
+      { src: "/bite_bank/Bite-bank-addfood.jpg", alt: "Add Food" },
+      { src: "/bite_bank/Bite-bank-managefood.jpg", alt: "Manage Food" },
     ],
     keyFeatures: [
       "Beautiful slides showcasing top foods on the banner.",
@@ -283,33 +281,29 @@ export const projects: Project[] = [
       "Add multi-language support for a more diverse user base.",
       "Optimize loading times for data-heavy sections of the app.",
     ],
+    links: {
+      livePreview: "https://a-11-bite-bank.web.app",
+      githubClient: "https://github.com/sayed725/BiteBank-Client",
+      githubServer: "https://github.com/sayed725/BiteBank-Server",
+      readme: "https://github.com/sayed725/BiteBank-Client/blob/main/README.md"
+    },
   },
   {
     id: 6,
     name: "Movielify",
-    homeImage: "/Movielify Home.png",
+    homeImage: "/movielify/Movielify Home.jpg",
     category: "fullstack",
-    title:
-      "A user-friendly website for exploring movies, viewing movie details, adding movies and deleting movies while managing user favorites.",
-    description:
-      "Movielify is a user-friendly movie portal built with the MERN Stack (MongoDB, Express.js, React.js, Node.js). It simplifies exploring movies, viewing details, adding movies, and managing user favorites. Features include a banner with top movie slides, detailed movie pages with favorite functionality, and a user dashboard for viewing favorite movies, all designed for a seamless user experience.",
+    title: "A user-friendly website for exploring movies, viewing movie details, adding movies and deleting movies while managing user favorites.",
+    description: "Movielify is a user-friendly movie portal built with the MERN Stack (MongoDB, Express.js, React.js, Node.js). It simplifies exploring movies, viewing details, adding movies, and managing user favorites. Features include a banner with top movie slides, detailed movie pages with favorite functionality, and a user dashboard for viewing favorite movies, all designed for a seamless user experience.",
     techStack: [
-      "React",
-      "Tailwind CSS",
-      "Daisy Ui",
-      "FireBase",
-      "Swiper.js",
-      "React Hook Form",
-      "React Star Rating",
-      "SweetAlert",
-      "Node.Js",
-      "Express.Js",
-      "MongoDB",
+      "React", "Tailwind CSS", "Daisy Ui", "FireBase", "Swiper.js", "React Hook Form",
+      "React Star Rating", "SweetAlert", "Node.Js", "Express.Js", "MongoDB"
     ],
     images: [
-      { src: "/Movielify Home.png", alt: "Home Page" },
-      { src: "/Movielify-moviedetails.png", alt: "Movie Details" },
-      { src: "/Movielify-addmovies.png", alt: "Add Movies" },
+      { src: "/movielify/Movielify Home.jpg", alt: "Home Page" },
+      { src: "/movielify/Movielify-moviedetails.jpg", alt: "Movie Details" },
+      { src: "/movielify/Movielify-addmovies.jpg", alt: "Add Movies" },
+      { src: "/movielify/Movielify all movie cards.jpg", alt: "Movie Cards" },
     ],
     keyFeatures: [
       "Beautiful slides showcasing top movies on the banner.",
@@ -324,34 +318,27 @@ export const projects: Project[] = [
       "Optimize loading times for data-heavy sections of the app.",
     ],
     links: {
-      livePreview: "#",
-      github: "#",
-      readme: "#"
+      livePreview: "https://assignment-10-b0e3a.web.app",
+      githubClient: "https://github.com/sayed725/MovieLify-client",
+      githubServer: "https://github.com/sayed725/MovieLify-Server",
+      readme: "https://github.com/sayed725/MovieLify-client/blob/main/README.md"
     },
   },
   {
     id: 7,
     name: "Green Edventures",
-    homeImage: "/green-home.png",
+    homeImage: "/green/green-home.jpg",
     category: "frontend",
-    title:
-      "A Travel Booking Website that provides information on various eco-adventure options, to browse and learn more about each experience.",
-    description:
-      "Green Edventures is a React-based platform for eco-friendly travel, enabling users to explore adventures like Forest and Mangrove Forest Expeditions. It provides detailed information on eco-adventure options, allowing users to browse, learn about tours, connect with experts, and manage their profiles. The application focuses on delivering a seamless and informative user experience.",
+    title: "A Travel Booking Website that provides information on various eco-adventure options, to browse and learn more about each experience.",
+    description: "Green Edventures is a React-based platform for eco-friendly travel, enabling users to explore adventures like Forest and Mangrove Forest Expeditions. It provides detailed information on eco-adventure options, allowing users to browse, learn about tours, connect with experts, and manage their profiles. The application focuses on delivering a seamless and informative user experience.",
     techStack: [
-      "React",
-      "Tailwind CSS",
-      "Daisy Ui",
-      "FireBase",
-      "SweetAlert",
-      "Toastify",
-      "Swiper.js",
+      "React", "Tailwind CSS", "Daisy Ui", "FireBase", "SweetAlert", "Toastify", "Swiper.js"
     ],
     images: [
-      { src: "/green-home.png", alt: "Home Page" },
-      { src: "/greeen-destination.png", alt: "Destination" },
-      { src: "/green discover.png", alt: "Discover" },
-      { src: "/green-explore.png", alt: "Explore" },
+      { src: "/green/green-home.jpg", alt: "Home Page" },
+      { src: "/green/green-explore.jpg", alt: "Explore" },
+      { src: "/green/greeen-destination.jpg", alt: "Destination" },
+      { src: "/green/green discover.jpg", alt: "Discover" },
     ],
     keyFeatures: [
       "Beautiful slides showcasing eco-adventures on the banner.",
@@ -366,9 +353,10 @@ export const projects: Project[] = [
       "Optimize loading times for data-heavy sections of the app.",
     ],
     links: {
-      livePreview: "https://green-edventures.web.app/",
-      github: "https://github.com/sayed725/Green-Edventures",
-      readme: "#"
+      livePreview: "https://assingment-10-5294b.web.app",
+      githubClient: "https://github.com/sayed725/GREEN-EDVENTURES",
+      readme: "https://github.com/sayed725/GREEN-EDVENTURES/blob/main/README.md"
+
     },
   }
 ];

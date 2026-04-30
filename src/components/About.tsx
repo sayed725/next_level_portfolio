@@ -54,7 +54,7 @@ export default function About() {
             >
               <div className="relative w-full max-w-[280px] sm:max-w-[320px] h-[300px] sm:h-[350px] lg:h-full lg:min-h-[300px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl mx-auto">
                 <Image
-                  src="/sayed_cover_photo.png"
+                  src="/sayed_cover_photo.jpg"
                   alt="Abu Sayed Khan"
                   fill
                   className="object-cover"

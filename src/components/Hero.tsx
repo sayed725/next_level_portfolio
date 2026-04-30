@@ -167,7 +167,7 @@ export default function Hero() {
               <img
                 alt="Abu Sayed Khan"
                 className="w-full h-full object-cover"
-                src="/sayed_hero_section_pic.png"
+                src="/sayed_hero.jpg"
               />
             </div>
 
