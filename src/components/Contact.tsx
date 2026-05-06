@@ -115,150 +115,163 @@ export default function Contact() {
             Have a project in mind or want to collaborate? Feel free to reach
             out. I&apos;m always open to new opportunities.
           </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
+        </motion.div>    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6">
           {/* Left: Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 space-y-5"
+            className="lg:col-span-2 flex"
           >
-            <div className="glass-card rounded-2xl p-5 sm:p-7">
-              <h3 className="text-xl font-bold text-white mb-2">
-                Let&apos;s talk about everything!
-              </h3>
-              <p className="text-gray-400 text-sm mb-6">
-                Don&apos;t like forms? Send me an email or reach out via
-                WhatsApp. 👋
-              </p>
+            <div className="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group w-full">
+              {/* Background Glow */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/10 blur-[80px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-500" />
+              
+              <div className="relative">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                  Let&apos;s talk about everything!
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base mb-8 leading-relaxed">
+                  Don&apos;t like forms? Send me an email or reach out via
+                  WhatsApp. I&apos;m usually very responsive. 👋
+                </p>
 
-              <div className="space-y-4">
-                {contactInfo.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ x: 5 }}
-                    className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/[0.03] transition-colors cursor-default group"
-                  >
-                    <div
-                      className={`w-11 h-11 rounded-xl bg-gradient-to-r ${item.gradient} flex items-center justify-center text-white shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform`}
+                <div className="space-y-1">
+                  {contactInfo.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-4 p-3 sm:p-4 rounded-2xl hover:bg-white/[0.04] border border-transparent hover:border-white/5 transition-all duration-300 cursor-default group/item"
                     >
-                      {item.icon}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-white font-semibold text-sm sm:text-base break-all sm:break-normal">
-                        {item.title}
-                      </p>
-                      <p className="text-gray-500 text-xs sm:text-sm truncate sm:whitespace-normal">
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+                      <div
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-lg flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300`}
+                      >
+                        {item.icon}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-white font-bold text-sm sm:text-base mb-0.5 break-all sm:break-normal">
+                          {item.title}
+                        </p>
+                        <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                          {item.subtitle}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
 
           {/* Right: Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="lg:col-span-3"
+            className="lg:col-span-3 flex"
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-card rounded-2xl p-5 sm:p-7 space-y-5"
+              className="glass-card rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden w-full flex flex-col justify-between"
             >
-              {/* Name & Email Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-xs text-gray-400 uppercase tracking-wider font-medium">
-                    Your Name
+              {/* Background Glow */}
+              <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-violet-500/10 blur-[80px] rounded-full" />
+
+              <div className="relative space-y-6">
+                {/* Name & Email Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2.5">
+                    <label className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-semibold ml-1">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Abu Sayed Khan"
+                      required
+                      className="w-full px-5 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm sm:text-base focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 appearance-none"
+                    />
+                  </div>
+                  <div className="space-y-2.5">
+                    <label className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-semibold ml-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@example.com"
+                      required
+                      className="w-full px-5 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm sm:text-base focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 appearance-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Subject */}
+                <div className="space-y-2.5">
+                  <label className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-semibold ml-1">
+                    Subject
                   </label>
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Abu Sayed Khan"
+                    placeholder="Project Inquiry"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all appearance-none"
+                    className="w-full px-5 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm sm:text-base focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 appearance-none"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs text-gray-400 uppercase tracking-wider font-medium">
-                    Email Address
+
+                {/* Message */}
+                <div className="space-y-2.5">
+                  <label className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-semibold ml-1">
+                    Message
                   </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
-                    placeholder="you@example.com"
+                    placeholder="Tell me about your project..."
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all appearance-none"
+                    rows={6}
+                    className="w-full px-5 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm sm:text-base focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 resize-none"
                   />
                 </div>
-              </div>
 
-              {/* Subject */}
-              <div className="space-y-2">
-                <label className="text-xs text-gray-400 uppercase tracking-wider font-medium">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Project Inquiry"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all appearance-none"
-                />
+                {/* Submit Button */}
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full h-14 rounded-2xl bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 text-white border-0 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 text-base font-bold gap-3 overflow-hidden relative group"
+                  >
+                    {isLoading ? (
+                      <div className="flex items-center gap-3">
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span className="tracking-wide">SENDING...</span>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                        <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        <span className="tracking-wide relative">SEND MESSAGE</span>
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               </div>
-
-              {/* Message */}
-              <div className="space-y-2">
-                <label className="text-xs text-gray-400 uppercase tracking-wider font-medium">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project..."
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all resize-none"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="w-full h-12 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 text-white border-0 hover:shadow-lg hover:shadow-blue-500/40 transition-all text-sm sm:text-base font-semibold gap-2"
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </>
-                )}
-              </Button>
             </form>
           </motion.div>
         </div>
